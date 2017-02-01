@@ -27,6 +27,14 @@
 	\end{multicols}
 
 	\item %b
+	\paragraph{ping}
+	I began by capturing the traffic on eth0 and issued the command "ping ru.nl". I stopped the process after 4 pings.
+
+	This resulted in a broad casted ARP request to ask who has IP 10.0.2.3. After this request was answered a DNS lookup for ru.nl was issued and the answer contained ru.nl's IP4 address to which a ICMP ping was sent and an answer received. This step was repeated until the process was stopped.
+
+	Interleaved with that was another ARP request to ask who 10.0.2.2 was but I don't know why. This address wasn't used after that.
+
+	I expected the DNS requests to be cached but they were not. For each new ping there was another DNS lookup. The rest is pretty obvious: A request is sent to the looked up IP and an answer received. Then this is repeated until the user stops the process.
 \end{enumerate}
 
 \section{} %2
