@@ -42,6 +42,15 @@
 	Next traceroute began sending UDP packets with increasing TTL (time to live). Those requests exceeded theit TTL somewhere along the way to google.com and the corresponding node sent an error in the ICMP protocol back to traceroute. This allows it to be identified as a hop on the route.
 
 	By repeatedly doing this Wireshark can identify the whole route to google.com.
+
+	\paragraph{whois}
+	As advised I ran "whois 128.119.245.12". Just like traceroute it began by requesting the A and AAAA records of whois.arin.net but proceeded to ignore the IPv6 address.
+
+	It then sent a lot of TCP packets to this address and got a lot of responses. I was told that some of those TCP packets were actually the WHOIS protocol but NetKit did not identify it as such. It contained Wireshark 1.8.2 which is quite old.
+
+	I found the first request that contained the requested IP (128.119.245.12) and clicked "follow TCP Stream".
+
+	If you create a website you have to register it to someone. You have to provide the information you can retrieve with whois.
 \end{enumerate}
 
 \section{} %2
