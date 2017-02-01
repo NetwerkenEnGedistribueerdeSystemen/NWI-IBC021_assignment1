@@ -35,6 +35,13 @@
 	Interleaved with that was another ARP request to ask who 10.0.2.2 was but I don't know why. This address wasn't used after that.
 
 	I expected the DNS requests to be cached but they were not. For each new ping there was another DNS lookup. The rest is pretty obvious: A request is sent to the looked up IP and an answer received. Then this is repeated until the user stops the process.
+
+	\paragraph{traceroute}
+	Next I used "traceroute google.com". The first thing it did was request the A and AAAA records for google.com over DNS. It received the IPv4, and IPv6 addresses of Google. I don't know why the IPv6 address was requested. It was not used. Maybe it would have been used if google.com had not had an IPv4 address.
+
+	Next traceroute began sending UDP packets with increasing TTL (time to live). Those requests exceeded theit TTL somewhere along the way to google.com and the corresponding node sent an error in the ICMP protocol back to traceroute. This allows it to be identified as a hop on the route.
+
+	By repeatedly doing this Wireshark can identify the whole route to google.com.
 \end{enumerate}
 
 \section{} %2
