@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper]{article}
 
 \usepackage{enumerate}
+\usepackage{multicol}
 
 \setlength\parskip{1em}
 \setlength\parindent{0em}
@@ -15,6 +16,16 @@
 \section{} %1
 \begin{enumerate}[a]
 	\item %a
+	\begin{multicols}{2}
+		I found 2 network interfaces. One is the localhost (lo) and one is an ethernet interface (eth0).
+
+		\begin{tabular}{c|c}
+			Network Interface & IP4\\\hline
+			eth0 & 10.0.2.15\\
+			lo & 127.0.0.1\\
+		\end{tabular}
+	\end{multicols}
+
 	\item %b
 \end{enumerate}
 
