@@ -122,7 +122,25 @@ traceroute to soest.hawaii.edu (128.171.151.230), 30 hops max, 60 byte packets
 	The number of hops (that I can see) on the way to the server is 16.
 
 	I used "ping soest.hawaii.edu" and let it run for 10 pings. The variance was \textbf{very} low at $0.5ms$ and the average rountrip time was 206ms.
+
 	\item %c
+	\begin{multicols}{2}
+		I obtained the following table using $whois$.
+
+		\begin{tabular}{l|c}
+		\multicolumn{1}{c|}{IP} & Location\\\hline
+		192.168.2.254 & Local router (Netherlands)\\
+		195.190.228.52 & Netherlands\\
+		213.75.* & Netherlands\\
+		134.222.93.* & Netherlands\\
+		134.222.48.* & Mainland USA\\
+		64.57.* & Mainland USA\\
+		205.166.205.27 & Hawaii (USA)\\
+		128.171.* & Hawaii (USA)
+		\end{tabular}
+
+		Oceans are crossed between Hop 5 and Hop 6, as well as Hop 10 and Hop 11. This is consistent with big jump in the RTT.
+	\end{multicols}
 \end{enumerate}
 
 \section{} %4
