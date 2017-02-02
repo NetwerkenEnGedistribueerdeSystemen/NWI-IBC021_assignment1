@@ -4,6 +4,10 @@
 \usepackage{multicol}
 \usepackage{listings}
 
+\lstset{
+	breaklines=true
+}
+
 \setlength\parskip{1em}
 \setlength\parindent{0em}
 
@@ -62,9 +66,7 @@
 	\item %b
 	HTTP stream:
 
-	\begin{lstlisting}[
-		breaklines=true
-	]
+	\begin{lstlisting}
 GET /wireshark-labs/INTRO-wireshark-file1.html HTTP/1.1
 Host: gaia.cs.umass.edu
 Connection: keep-alive
@@ -94,6 +96,27 @@ Congratulations!  You've downloaded the first Wireshark lab file!
 \section{} %3
 \begin{enumerate}[a]
 	\item %a
+	Output of "traceroute soest.hawaii.org":
+
+	\begin{lstlisting}
+traceroute to soest.hawaii.edu (128.171.151.230), 30 hops max, 60 byte packets
+ 1  mijnmodem.kpn.home (192.168.2.254)  0.801 ms  0.792 ms  0.875 ms
+ 2  195.190.228.52 (195.190.228.52)  2.172 ms  2.167 ms  2.162 ms
+ 3  nl-ah-dc2-git-cr01.kpn.net (213.75.1.77)  6.605 ms nl-rt-dc2-git-cr04.kpn.net (213.75.64.241)  5.881 ms 77.1.75.213.in-addr.arpa (213.75.1.77)  6.594 ms
+ 4  nl-rt-dc2-ice-ir01.kpn.net (213.75.64.240)  6.588 ms nl-asd-dc2-ice-ir01.kpn.net (213.75.1.76)  6.572 ms 240.64.75.213.in-addr.arpa (213.75.64.240)  6.574 ms
+ 5  rt2-rou-1022.NL.eurorings.net (134.222.93.140)  5.844 ms asd2-rou-1022.NL.eurorings.net (134.222.93.138)  5.093 ms  5.091 ms
+ 6  chg-s1-rou-1041.US.eurorings.net (134.222.48.90)  100.393 ms  98.856 ms  98.855 ms
+ 7  nyk-s2-rou-1021.US.eurorings.net (134.222.48.35)  87.234 ms  87.232 ms  87.222 ms
+ 8  xe-4-0-3.0.rtsw.seat.net.internet2.edu (64.57.20.168)  141.577 ms  141.062 ms  141.055 ms
+ 9  ae-0.0.rtr.eqch.net.internet2.edu (64.57.20.33)  109.729 ms 64.57.21.50 (64.57.21.50)  205.772 ms  205.778 ms
+10  xe-4-0-3.0.rtsw.seat.net.internet2.edu (64.57.20.168)  151.076 ms  151.072 ms xe-1-1-0-53-coconut-re0.uhnet.net (205.166.205.27)  205.760 ms
+11  64.57.21.50 (64.57.21.50)  216.341 ms  215.357 ms  215.339 ms
+12  vl-3208-manoa6506-1.uhnet.net (128.171.186.163)  206.740 ms  206.396 ms xe-1-1-0-53-coconut-re0a.uhnet.net (205.166.205.27)  215.318 ms
+13  128.171.186.241 (128.171.186.241)  207.136 ms  207.384 ms  208.155 ms
+14  163.186.171.128.in-addr.arpa (128.171.186.163)  216.442 ms soestgw.soest.hawaii.edu (128.171.124.9)  208.804 ms  209.786 ms
+15  tenghig.soest.hawaii.edu (128.171.150.3)  207.301 ms 128.171.186.241 (128.171.186.241)  217.043 ms 3.150.171.128.in-addr.arpa (128.171.150.3)  208.048 ms
+16  dns.soest.hawaii.edu (128.171.151.230)  207.226 ms  207.224 ms  206.921 ms
+	\end{lstlisting}
 	\item %b
 	\item %c
 \end{enumerate}
