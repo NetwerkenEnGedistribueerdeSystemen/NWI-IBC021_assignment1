@@ -3,6 +3,7 @@
 \usepackage{enumerate}
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{graphicx}
 
 \lstset{
 	breaklines=true
@@ -39,6 +40,8 @@
 
 	Interleaved with that was another ARP request to ask who 10.0.2.2 was but I don't know why. This address wasn't used after that.
 
+	\includegraphics[width=\linewidth]{images/ping}
+
 	I expected the DNS requests to be cached but they were not. For each new ping there was another DNS lookup. The rest is pretty obvious: A request is sent to the looked up IP and an answer received. Then this is repeated until the user stops the process.
 
 	\paragraph{traceroute}
@@ -48,12 +51,16 @@
 
 	By repeatedly doing this Wireshark can identify the whole route to google.com.
 
+	\includegraphics[width=\linewidth]{images/traceroute}
+
 	\paragraph{whois}
 	As advised I ran "whois 128.119.245.12". Just like traceroute it began by requesting the A and AAAA records of whois.arin.net but proceeded to ignore the IPv6 address.
 
 	It then sent a lot of TCP packets to this address and got a lot of responses. I was told that some of those TCP packets were actually the WHOIS protocol but NetKit did not identify it as such. It contained Wireshark 1.8.2 which is quite old.
 
 	I found the first request that contained the requested IP (128.119.245.12) and clicked "follow TCP Stream".
+
+	\includegraphics[width=\linewidth]{images/whois}
 
 	If you create a website you have to register it to someone. You have to provide the information you can retrieve with whois. Whois just requests the information from the database and displays it.
 \end{enumerate}
