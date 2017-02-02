@@ -2,6 +2,7 @@
 
 \usepackage{enumerate}
 \usepackage{multicol}
+\usepackage{listings}
 
 \setlength\parskip{1em}
 \setlength\parindent{0em}
@@ -59,6 +60,35 @@
 	I used the filter "http and ip.src == 128.119.245.12" to filter out only HTTP request that originated from the server.
 
 	\item %b
+	HTTP stream:
+
+	\begin{lstlisting}[
+		breaklines=true
+	]
+GET /wireshark-labs/INTRO-wireshark-file1.html HTTP/1.1
+Host: gaia.cs.umass.edu
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8,de;q=0.6
+
+HTTP/1.1 200 OK
+Date: Thu, 02 Feb 2017 13:23:01 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.1e-fips PHP/5.4.16 mod_perl/2.0.10 Perl/v5.16.3
+Last-Modified: Thu, 02 Feb 2017 06:59:01 GMT
+ETag: "51-54786b33397f0"
+Accept-Ranges: bytes
+Content-Length: 81
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
+
+<html>
+Congratulations!  You've downloaded the first Wireshark lab file!
+</html>
+	\end{lstlisting}
 \end{enumerate}
 
 \section{} %3
