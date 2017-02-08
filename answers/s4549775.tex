@@ -153,6 +153,25 @@ traceroute to soest.hawaii.edu (128.171.151.230), 30 hops max, 60 byte packets
 \section{} %4
 \begin{enumerate}[a]
 	\item %a
+	\begin{tabular}{|p{20em}|c|}
+		\hline
+		\textbf{Description} & \textbf{Message}\\\hline
+		\multicolumn{2}{|c|}{\textbf{ATM $\rightarrow$ Server}}\\\hline
+		Request connection & $REQ\_CON$\\\hline
+		Close connection & $CLS\_CON$\\\hline
+		Send Card Number & $CARD(card number)$\\\hline
+		Send PIN & $PIN(pin)$\\\hline
+		Request authorization to withdraw x (int) money. This is only sent after the ATM internally verified that he has enough money to fulfill the withdrawal request. & $REQ\_AUTH(x)$\\\hline
+
+		\multicolumn{2}{|c|}{\textbf{Server $\rightarrow$ ATM}}\\\hline
+		Accept connection & $ACC\_CON$\\\hline
+		Deny connection & $DNY\_CON$\\\hline
+		Request Card Number & $REQ\_CARD$\\\hline
+		Request PIN & $REQ\_PIN$\\\hline
+		Authorize withdrawal of x (int) money. Once the ATM receives this message, it will hand x money to the user. & $AUTH(x)$\\\hline
+		Deny authorization to withdraw money. The server could decide to deny the authorization if, for example, the card number does not exist, the entered PIN did not match the card number, or if the account does not have enough money. The reason for denying the request is sent as a message that can be used to inform the user or logging, etc. & $DNY\_AUTH(message)$\\\hline
+	\end{tabular}
+
 	\item %b
 	\item %c
 \end{enumerate}
