@@ -4,6 +4,8 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
 
 \lstset{
 	breaklines=true
@@ -196,6 +198,41 @@ traceroute to soest.hawaii.edu (128.171.151.230), 30 hops max, 60 byte packets
 \section{} %5
 \begin{enumerate}[a]
 	\item %a
+	\begin{tikzpicture}[
+		node distance=4em
+		, thick
+		,c/.style={circle, draw}
+	]
+		\node (Start) {};
+		\node[c, right=1em of Start] (S1) {S1};
+		\node[c, right=of S1] (S2) {S2};
+		\node[c, right=of S2] (S3) {S3};
+		\node[c, right=of S3] (S4) {S4};
+
+		\draw[->] (Start) edge (S1);
+		\draw[->] (S1) edge node[fill=white] {a} (S2);
+		\draw[->] (S2) edge[bend left] node[fill=white] {b} (S1);
+		\draw[->] (S2) edge[loop above] node[auto] {h} (S2);
+		\draw[->] (S2) edge node[fill=white] {c} (S3);
+		\draw[->] (S3) edge[bend left, in=135] node[fill=white] {b, d} (S1);
+		\draw[->] (S3) edge[loop above] node[auto] {h} (S3);
+		\draw[->] (S3) edge node[fill=white] {e} (S4);
+		\draw[->] (S4) edge[bend left] node[fill=white] {f} (S3);
+		\draw[->] (S4) edge[bend right] node[fill=white] {g} (S3);
+		\draw[->] (S4) edge[bend left, in=115] node[fill=white] {b} (S1);
+	\end{tikzpicture}
+
+	\begin{description}
+		\item[a] Client connects
+		\item[b] An error occurs (Client disconnects unexpectedly, \dots)
+		\item[c] Client sends "hello", server responds with "hello"
+		\item[d] Client sends "bye", server responds with "bye".
+		\item[e] Client sends "get <path>"
+		\item[f] File exists at <path>, server responds with "file\_content"
+		\item[g] File does not exists at <path>, server responds with "file\_not\_found"
+		\item[h] Client sends any other message, server responds with "cannot\_understand"
+	\end{description}
+
 	\item %b
 	I implemented the protocol as a python 3 server. The script is attached as server.py.
 
